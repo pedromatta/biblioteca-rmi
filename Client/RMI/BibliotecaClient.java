@@ -11,7 +11,7 @@ public class BibliotecaClient {
 
             System.out.print("Insira o IP do servidor: ");
             String ip = sc.nextLine();
-            Biblioteca bib = (Biblioteca) Naming.lookup("rmi://" + ip + ":1099/BibService");
+            Biblioteca bib = (Biblioteca)Naming.lookup("rmi://" + ip + ":1099/BibService");
 
             int opcao = -1;
 

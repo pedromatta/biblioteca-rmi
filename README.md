@@ -31,7 +31,7 @@ O código-fonte está separado em dois módulos, cliente e servidor.
 
 1. **JDK (Java Development Kit):** Necessário para a compilação (javac) e execução (java) do projeto.
 2. **Ambiente**: Os scripts de execução (.sh) são feitos para um terminal shell.
-    - Windows: É recomendado o uso do WSL para rodar o projeto.
+    - Windows: É recomendado o uso do [WSL](https://learn.microsoft.com/pt-br/windows/wsl/install) para rodar o projeto.
 
 Para verificar se você tem o Java e o compilador, abra um terminal e digite:
 

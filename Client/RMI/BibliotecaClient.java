@@ -37,11 +37,12 @@ public class BibliotecaClient {
                         break;
                     case 0:
                         System.out.println("Saindo...");
-                        break;
+                        return;
                     default:
                         System.out.println("Opcao invalida. Tente novamente.");
                 }
-                System.out.println("---------------------------------");
+                System.out.print("---------------------------------");
+                sc.nextLine();
             }
             sc.close();
 

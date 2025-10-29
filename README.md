@@ -10,21 +10,21 @@ O código-fonte está separado em dois módulos, cliente e servidor.
 
 ```
 .
-├──  Client/                  <-- 1. Código do Cliente
-│   └──  RMI/
-│       └──  BibliotecaClient.java  (Cliente)
-│       ├──  Biblioteca.java        (A Interface remota)
-│       └──  Livro.java             (O Objeto serializável)
+├── Client/                  <-- 1. Código do Cliente
+│   └── RMI/
+│       └── BibliotecaClient.java  (Cliente)
+│       ├── Biblioteca.java        (A Interface remota)
+│       └── Livro.java             (O Objeto serializável)
 │
-├──  Server/                  <-- 2. Código do Servidor
-│   └──  RMI/
-│       ├──  BibliotecaImpl.java    (Implementação da interface)
-│       └──  BibliotecaServer.java  (Servidor)
-│       ├──  Biblioteca.java        (A Interface remota)
-│       └──  Livro.java             (O Objeto serializável)
+├── Server/                  <-- 2. Código do Servidor
+│   └── RMI/
+│       ├── BibliotecaImpl.java    (Implementação da interface)
+│       └── BibliotecaServer.java  (Servidor)
+│       ├── Biblioteca.java        (A Interface remota)
+│       └── Livro.java             (O Objeto serializável)
 │
-├──  start_client.sh                (Script para Execução do Cliente)
-└──  start_server.sh                (Script para Execução do Servidor)
+├── start_client.sh                (Script para Execução do Cliente)
+└── start_server.sh                (Script para Execução do Servidor)
 ```
 
 ## Pré-requisitos

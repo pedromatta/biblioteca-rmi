@@ -7,9 +7,12 @@ O sistema simula o back-end de uma biblioteca simples com um servidor que gerenc
 [RMI](#rmi)
 - [RMI vs RPC](#rmi-vs-rpc)
 - [Componentes do RMI](#componentes-do-rmi)
+
 [Estrutura do Projeto](#estrutura-do-projeto) 
 - [Aplicação do RMI no Projeto](#aplicação-do-rmi-no-projeto)
+
 [Pré-requisitos](#pré-requisitos)
+
 [Gua de Execução](#guia-de-execução-linux--macos--git-bash)
 
 ## RMI

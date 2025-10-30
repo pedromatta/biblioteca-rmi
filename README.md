@@ -4,6 +4,14 @@ Este é um projeto acadêmico desenvovlido para a disciplina Desenvolvimento de 
 
 O sistema simula o back-end de uma biblioteca simples com um servidor que gerencia os livros e um cliente de terminal que pode interagir remotamente para adicionar consultar, emprestar e devolver livros.
 
+[RMI](#rmi)
+- [RMI vs RPC](#rmi-vs-rpc)
+- [Componentes do RMI](#componentes-do-rmi)
+[Estrutura do Projeto](#estrutura-do-projeto) 
+- [Aplicação do RMI no Projeto](#aplicação-do-rmi-no-projeto)
+[Pré-requisitos](#pré-requisitos)
+[Gua de Execução](#guia-de-execução-linux--macos--git-bash)
+
 ## RMI
 
 O RMI (Remote Method Invocation) é um mecanismo da plataforma Java que permite que um objeto em uma JVM invoque métodos de um objeto que está em outra JVM, como se ambos estivessem no mesmo local.
@@ -20,12 +28,12 @@ O RMI é, essencialmente, a implementação orientada a objetos do Java para o c
 
 O RMI funciona com base em alguns componentes-chave:
 
-1. Interface Remota (`java.rmi.Remote`): Define a assinatura dos métodos que estarão disponíveis para invocação remota. Ela serve como o contrato de serviço entre o cliente e o servidor. Todo método deve declarar que lança `java.rmi.RemoteException`.
-2. Objeto Remoto (U`nicastRemoteObject`): A classe no lado do servidor que implementa a interface remota. Ela contém a lógica de negócios real que será executada. Ao estender `UnicastRemoteObject`, a classe ganha a capacidade de ser exportada e receber chamadas remotas.
-3. RMI Registry: Um serviço de nomes (nameserver) que atua como um diretório. O servidor registra (bind) seus objetos remotos no Registry usando um nome único.
-4. Stub: Um objeto proxy gerado pelo RMI que implementa a mesma interface remota. O cliente obtém uma referência a esse Stub ao consultar o Registry. O Stup é rsponsável por serializar os argumenos do método (marshallling) e enviá-los ao servidor.
-5. Skeleton: A contraparte do Stub no servidor. É responsável por receber a solicitação de rede, deserializar os argumentos (unmarshalling) e invocar o método correspondente no objeto remoto real.
-6. Serialização (`java.io.Serializable`): O Processo pelo qual os parâmetros e valores de retorno (objetos) são convertidos em um fluxo de bytes para transmissão pela rede e, posteriormente, reconstruídos no destino.
+- Interface Remota (`java.rmi.Remote`): Define a assinatura dos métodos que estarão disponíveis para invocação remota. Ela serve como o contrato de serviço entre o cliente e o servidor. Todo método deve declarar que lança `java.rmi.RemoteException`.
+- Objeto Remoto (U`nicastRemoteObject`): A classe no lado do servidor que implementa a interface remota. Ela contém a lógica de negócios real que será executada. Ao estender `UnicastRemoteObject`, a classe ganha a capacidade de ser exportada e receber chamadas remotas.
+- RMI Registry: Um serviço de nomes (nameserver) que atua como um diretório. O servidor registra (bind) seus objetos remotos no Registry usando um nome único.
+- Stub: Um objeto proxy gerado pelo RMI que implementa a mesma interface remota. O cliente obtém uma referência a esse Stub ao consultar o Registry. O Stup é rsponsável por serializar os argumenos do método (marshallling) e enviá-los ao servidor.
+- Skeleton: A contraparte do Stub no servidor. É responsável por receber a solicitação de rede, deserializar os argumentos (unmarshalling) e invocar o método correspondente no objeto remoto real.
+- Serialização (`java.io.Serializable`): O Processo pelo qual os parâmetros e valores de retorno (objetos) são convertidos em um fluxo de bytes para transmissão pela rede e, posteriormente, reconstruídos no destino.
 
 ## Estrutura do Projeto
 

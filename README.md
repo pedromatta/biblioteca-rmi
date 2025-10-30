@@ -4,16 +4,14 @@ Este é um projeto acadêmico desenvovlido para a disciplina Desenvolvimento de 
 
 O sistema simula o back-end de uma biblioteca simples com um servidor que gerencia os livros e um cliente de terminal que pode interagir remotamente para adicionar consultar, emprestar e devolver livros.
 
-[RMI](#rmi)
-- [RMI vs RPC](#rmi-vs-rpc)
-- [Componentes do RMI](#componentes-do-rmi)
-
-[Estrutura do Projeto](#estrutura-do-projeto) 
-- [Aplicação do RMI no Projeto](#aplicação-do-rmi-no-projeto)
-
-[Pré-requisitos](#pré-requisitos)
-
-[Gua de Execução](#guia-de-execução-linux--macos--git-bash)
+**Sumário**
+- [RMI](#rmi)
+    - [RMI vs RPC](#rmi-vs-rpc)
+    - [Componentes do RMI](#componentes-do-rmi)
+- [Estrutura do Projeto](#estrutura-do-projeto) 
+    - [Aplicação do RMI no Projeto](#aplicação-do-rmi-no-projeto)
+- [Pré-requisitos](#pré-requisitos)
+- [Gua de Execução](#guia-de-execução-linux--macos--git-bash)
 
 ## RMI
 

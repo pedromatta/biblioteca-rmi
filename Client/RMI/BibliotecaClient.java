@@ -2,6 +2,7 @@ package RMI;
 
 import java.rmi.Naming;
 import java.util.Scanner;
+import java.util.List;
 
 public class BibliotecaClient {
     public static void main(String[] args) {
@@ -11,7 +12,7 @@ public class BibliotecaClient {
 
             System.out.print("Insira o IP do servidor: ");
             String ip = sc.nextLine();
-            Biblioteca bib = (Biblioteca)Naming.lookup("rmi://" + ip + ":1099/BibService");
+            Biblioteca bib = (Biblioteca) Naming.lookup("rmi://" + ip + ":1099/BibService");
 
             int opcao = -1;
 
@@ -19,7 +20,13 @@ public class BibliotecaClient {
 
             while (opcao != 0) {
                 imprimirMenu();
-                opcao = sc.nextInt();
+                try {
+                    opcao = sc.nextInt();
+                } catch (java.util.InputMismatchException e) {
+                    System.out.println("Entrada invalida. Por favor, digite um numero.");
+                    sc.nextLine();
+                    continue;
+                }
                 sc.nextLine();
 
                 switch (opcao) {
@@ -35,14 +42,16 @@ public class BibliotecaClient {
                     case 4:
                         devolver(bib, sc);
                         break;
+                    case 5:
+                        listarTodos(bib);
+                        break;
                     case 0:
                         System.out.println("Saindo...");
-                        return;
+                        break;
                     default:
                         System.out.println("Opcao invalida. Tente novamente.");
                 }
-                System.out.print("---------------------------------");
-                sc.nextLine();
+                System.out.println("---------------------------------");
             }
             sc.close();
 
@@ -57,6 +66,7 @@ public class BibliotecaClient {
         System.out.println("2. Consultar Livro");
         System.out.println("3. Emprestar Livro");
         System.out.println("4. Devolver Livro");
+        System.out.println("5. Listar Todos os Livros");
         System.out.println("0. Sair");
         System.out.print("Escolha uma opcao: ");
     }
@@ -67,13 +77,11 @@ public class BibliotecaClient {
             String titulo = scanner.nextLine();
             System.out.print("Digite o Autor: ");
             String autor = scanner.nextLine();
-            System.out.print("Digite o ISBN: ");
-            String isbn = scanner.nextLine();
             System.out.print("Digite a Quantidade: ");
             int qtd = scanner.nextInt();
             scanner.nextLine();
 
-            String resposta = bib.adicionarLivro(titulo, autor, isbn, qtd);
+            String resposta = bib.adicionarLivro(titulo, autor, qtd);
             System.out.println("\n[Servidor diz]: " + resposta);
 
         } catch (Exception e) {
@@ -119,6 +127,26 @@ public class BibliotecaClient {
 
             String resposta = bib.devolverLivro(isbn);
             System.out.println("\n[Servidor diz]: " + resposta);
+
+        } catch (Exception e) {
+            System.err.println("Erro ao comunicar com o servidor: " + e.getMessage());
+        }
+    }
+
+    private static void listarTodos(Biblioteca bib) {
+        try {
+            List<Livro> livros = bib.listarTodosLivros();
+
+            if (livros == null || livros.isEmpty()) {
+                System.out.println("\n[Servidor diz]: Nenhum livro cadastrado.");
+                return;
+            }
+
+            System.out.println("\n[Catálogo]:");
+            for (Livro livro : livros) {
+                System.out.println(livro.getInfo());
+                System.out.println("---");
+            }
 
         } catch (Exception e) {
             System.err.println("Erro ao comunicar com o servidor: " + e.getMessage());

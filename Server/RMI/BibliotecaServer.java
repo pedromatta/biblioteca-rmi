@@ -10,13 +10,22 @@ public class BibliotecaServer {
 
             LocateRegistry.createRegistry(1099);
 
-            Naming.rebind("rmi://localhost:1099/BibService", biblioteca);
+	    if(args[0] != null)
+	    {
+		Naming.rebind("rmi://" + args[0] + ":1099/BibService", biblioteca);
+		System.out.println("Servidor RMI da Biblioteca pronto!");
+                System.out.println("Servindo em: " + args[0]);
+	    } 
+	    else
+	    {
+		Naming.rebind("rmi://localhost:1099/BibService", biblioteca);
+		System.out.println("Servidor RMI da Biblioteca pronto!");
+                System.out.println("Servindo no localhost." );
+	    }
 
 
-            System.out.println("Servidor RMI da Biblioteca pronto!");
             if(args[0] != null)
             {
-                System.out.println("Servindo em: " + args[0]);
             }
             System.out.println("Aguardando conexoes...");
 
